@@ -44,7 +44,3 @@ size_t StaticTable::size()
 {
    return Table.size();
 }
-
-
-
-
