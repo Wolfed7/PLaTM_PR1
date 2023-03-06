@@ -24,4 +24,5 @@ struct Variable
    int Type;
    int SizeBytes;
    int FieldOfView;
+   //bool IsInitialised;
 };

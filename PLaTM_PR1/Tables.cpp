@@ -75,26 +75,30 @@ Variable *Tables::SearchOnDynamic(pair<int, int> Address)
 
 pair<int, int> Tables::IncludeInDynamic(string Word, int Type, int SizeBytes, int FieldOfView)
 {
+   pair<int, int> IsExists = SearchOnDynamic(Word);
+   if (IsExists != pair<int, int> {-1, -1})
+      return IsExists;
+
    Variable newVar = { Word, Type, SizeBytes, FieldOfView };
    if (Variables->LinearSearch(Word) == -1)
    {
       Variables->Table.push_back(newVar);
       return { DynamicVariables, Variables->Table.size() - 1 };
    }
-   else
-      throw "Переопределение. Множественная инициализация.";
 }
 
 pair<int, int> Tables::IncludeInDynamic(string Value, int Type)
 {
+   pair<int, int> IsExists = SearchOnDynamic(Value);
+   if (IsExists != pair<int, int> {-1, -1})
+      return IsExists;
+
    Variable newVar = { Value, Type };
    if (Constants->LinearSearch(Value) == -1)
    {
       Constants->Table.push_back(newVar);
       return { DynamicConstants, Constants->Table.size() - 1 };
    }
-   else
-      throw "Переопределение. Множественная инициализация.";
 }
 
 pair<int, int> Tables::ChangeNameOrValue(pair<int, int> Address, string Word)

@@ -20,10 +20,11 @@ int main()
    );
 
    // Проверка поиска в постоянных таблицах.
-   tables.SearchOnStatic(";"); 
+   tables.SearchOnStatic("int"); 
 
    // Добавление в переменные таблицы.
-   tables.IncludeInDynamic("counter", Int, 4, Global);
+   pair<int, int> a = tables.IncludeInDynamic("counter", Int, 4, Global);
+   pair<int, int> b = tables.IncludeInDynamic("counter", Int, 4, Global);
    tables.IncludeInDynamic("132", Int);
    tables.IncludeInDynamic("siztable", Int, 4, Local);
    tables.IncludeInDynamic("IsProgram", Int, 4, Global);
